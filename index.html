@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Management App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 class="app-title">Sample Room Management Application</h1>
+
+  <div class="menu">
+    <button id="showStock"> Dossiers available </button>
+    <button id="showActions">Take or bring back dossier</button>
+    <button id="showSearch">Search Dossier</button>
+    <button id="showReport">Generate Report</button>
+  </div>
+
+  <div class="content" id="stockContent">
+    <h1>Dossiers available in sample room</h1>
+    <ul id="stockList"></ul>
+  </div>
+
+  <div class="content" id="actionsContent">
+    <h1>Take or Bring back dossier</h1>
+    <label for="itemName">Dossier reference Number:</label>
+    <input type="text" id="itemName">
+    <label for="itemLocation">Dossier Location:</label>
+    <input type="text" id="itemLocation">
+    <label for="itemBox">Box/Container:</label>
+    <input type="text" id="itemBox">
+    <button id="addItem">bring back PD</button>
+    <button id="removeItem">Remove PD from Sample room</button>
+  </div>
+
+  <div class="content" id="searchContent">
+    <h1>Search</h1>
+    <label for="searchItem">Search Product Dossier:</label>
+    <input type="text" id="searchItem">
+    <div id="searchResults"></div>
+    <button id="searchButton">Search</button>
+  </div>
+
+  <div class="content" id="reportContent">
+    <h1>Generate Report</h1>
+    <button id="downloadReport">Download Report</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
