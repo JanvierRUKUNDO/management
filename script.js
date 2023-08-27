@@ -1,7 +1,7 @@
 const stockList = document.getElementById("stockList");
 const itemNameInput = document.getElementById("itemName");
 const itemLocationInput = document.getElementById("itemLocation");
-const itemBoxInput = document.getElementById("itemBox"); // Added box input
+const itemBoxInput = document.getElementById("itemBox");
 const addItemButton = document.getElementById("addItem");
 const removeItemButton = document.getElementById("removeItem");
 const searchItemInput = document.getElementById("searchItem");
@@ -21,6 +21,14 @@ const showSearchButton = document.getElementById("showSearch");
 const showReportButton = document.getElementById("showReport");
 
 const searchResults = document.getElementById("searchResults");
+
+// Load stock data from localStorage on page load
+window.addEventListener("load", () => {
+  const storedStock = localStorage.getItem("stock");
+  if (storedStock) {
+    stockList.innerHTML = storedStock;
+  }
+});
 
 showStockButton.addEventListener("click", () => showContent(stockContent));
 showActionsButton.addEventListener("click", () => showContent(actionsContent));
@@ -65,6 +73,9 @@ function addItemToStock() {
         addedByEmail: workerEmail,
       };
     }
+
+    // Save updated stock data to localStorage
+    saveStockToLocalStorage();
   }
 }
 
@@ -80,6 +91,9 @@ function removeItemFromStock() {
       workerData[itemName].removedBy = workerName;
       workerData[itemName].removedByEmail = workerEmail;
     }
+
+    // Save updated stock data to localStorage
+    saveStockToLocalStorage();
   }
 }
 
@@ -133,3 +147,9 @@ function downloadReport() {
     link.click();
   }
 }
+
+// Save stock data to localStorage
+function saveStockToLocalStorage() {
+  localStorage.setItem("stock", stockList.innerHTML);
+}
+
