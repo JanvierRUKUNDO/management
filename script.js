@@ -117,7 +117,7 @@ function searchItem() {
 
   if (!found) {
     const noResultsMessage = document.createElement("p");
-    noResultsMessage.textContent = "Item not found in stock.";
+    noResultsMessage.textContent = "This dossier is not in sample room.";
     searchResults.appendChild(noResultsMessage);
   }
 }
