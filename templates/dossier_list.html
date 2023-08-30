@@ -1,0 +1,18 @@
+<h1>Dossier List</h1>
+<form method="get">
+    <label for="reference_number">Reference Number:</label>
+    <input type="text" name="reference_number" id="reference_number">
+    <label for="location_name">Location Name:</label>
+    <input type="text" name="location_name" id="location_name">
+    <button type="submit">Search</button>
+</form>
+<ul>
+{% for dossier in dossier_list %}
+    <li>
+        {{ dossier.reference_number }} - {{ dossier.location_name }} - {{ dossier.box_container }}
+        (<a href="{% url 'delete-dossier' dossier.id %}">Delete</a>)
+    </li>
+{% empty %}
+    <li>No dossiers found.</li>
+{% endfor %}
+</ul>
